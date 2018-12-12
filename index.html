@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <link  rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    </head>
+    <body>
+        <div id='appVue'>
+            <navbar></navbar>
+            <jumbotron v-bind:sample=2 v-bind:fn='ciao'></jumbotron>
+            <jumbotron v-bind:sample=4 ></jumbotron>
+            
+            <p v-if='y > 10'>Scrivi il messaggio: {{message}}</p>
+            
+            <button v-on:click='y++'>Increment y</button>
+            <button v-on:click='y--'>Decrement y</button>
+            <button class="btn btn-primary" @click='resetY()'>Reset y</button>
+            <div class="list-group">
+                <a v-for='post in posts' v-if='post.visible' href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{post.title}}</h5>
+                  </div>
+                  <p class="mb-1">{{post.description}}</p>
+                  <p class="mb-1">{{post.vsi}}</p>
+                </a>
+              </div>
+        </div>
+        
+    </body>
+
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="./app.js"></script>
+</html>
